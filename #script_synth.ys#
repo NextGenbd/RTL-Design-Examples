@@ -1,0 +1,24 @@
+ #!/bin/bash
+LIB_NAME=./lib/sky130_fd_sc_hd__tt_100C_1v80.lib
+
+yosys -l synth_core.log -p "
+read_verilog ./verilog/*.v;
+hierarchy -check -top mkccore_axi4;
+proc; opt; fsm; opt; memory; opt;
+techmap; opt;
+dfflibmap -liberty $LIB_NAME;
+abc -liberty $LIB_NAME;
+clean;
+write_verilog -noattr synth_core.yv
+"
+#
+yosys -l synth_alu.log -p "
+read_verilog ./verilog/module_fn_alu.v;
+hierarchy -check -top module_fn_alu;
+proc; opt; fsm; opt; memory; opt;
+techmap; opt;
+dfflibmap -liberty $LIB_NAME ; 
+abc -liberty $LIB_NAME ;
+clean;
+write_verilog -noattr synth_alu.yv
+"

@@ -1,0 +1,47 @@
+Warning: ./lib/sky130_fd_sc_hs__tt_100C_1v80.lib line 13, default_fanout_load is 0.0.
+Startpoint: riscv/stage0/_1773_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: imem/icache/m_data/v_data_0_ram_single_0/_10936_
+          (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ riscv/stage0/_1773_/CLK (sky130_fd_sc_hs__dfxtp_1)
+   0.75    0.75 v riscv/stage0/_1773_/Q (sky130_fd_sc_hs__dfxtp_1)
+   0.21    0.96 ^ riscv/stage0/_0668_/Y (sky130_fd_sc_hs__nor2b_1)
+   4.29    5.25 ^ riscv/stage0/_0671_/Y (sky130_fd_sc_hs__nor3b_1)
+   0.12    5.37 ^ riscv/stage0/_1236_/X (sky130_fd_sc_hs__mux2_1)
+   0.08    5.46 v imem/icache/_3142_/Y (sky130_fd_sc_hs__nand2b_1)
+2553.08 2558.53 ^ imem/icache/_4494_/Y (sky130_fd_sc_hs__o21ai_1)
+ 517.54 3076.08 v imem/icache/m_data/v_data_0_ram_single_0/_06667_/Y (sky130_fd_sc_hs__nand4_1)
+ 227.18 3303.26 ^ imem/icache/m_data/v_data_0_ram_single_0/_06668_/Y (sky130_fd_sc_hs__nor2_1)
+  -0.15 3303.11 v imem/icache/m_data/v_data_0_ram_single_0/_06671_/Y (sky130_fd_sc_hs__a21oi_1)
+   0.00 3303.11 v imem/icache/m_data/v_data_0_ram_single_0/_10936_/D (sky130_fd_sc_hs__dfxtp_1)
+        3303.11   data arrival time
+
+4000.00 4000.00   clock clk (rise edge)
+   0.00 4000.00   clock network delay (ideal)
+   0.00 4000.00   clock reconvergence pessimism
+        4000.00 ^ imem/icache/m_data/v_data_0_ram_single_0/_10936_/CLK (sky130_fd_sc_hs__dfxtp_1)
+  -0.65 3999.35   library setup time
+        3999.35   data required time
+---------------------------------------------------------
+        3999.35   data required time
+        -3303.11   data arrival time
+---------------------------------------------------------
+         696.24   slack (MET)
+
+
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             4.22e-03   8.54e-05   1.16e-02   1.59e-02  56.2%
+Combinational          5.71e-03   2.00e-04   6.61e-03   1.25e-02  44.1%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  9.92e-03   2.86e-04   1.82e-02   2.84e-02 100.0%
+                          35.0%       1.0%      64.0%

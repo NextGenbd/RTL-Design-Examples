@@ -1,0 +1,26 @@
+ #!/bin/bash
+LIB_NAME=./lib/sky130_fd_sc_hvl__tt_100C_3v30.lib
+
+yosys -l check_core.log -p "
+
+    # gold design
+    read_verilog ./verilog/signedmul.v
+    prep -flatten -top signedmul
+    design -stash gold
+    
+    # gate design
+    read_verilog synth_alu.yv
+    read_liberty  -ignore_miss_func $LIB_NAME
+    prep -flatten -top signedmul
+    design -stash gate
+    
+
+    # prove equivalence
+    design -copy-from gold -as gold signedmul
+    design -copy-from gate -as gate signedmul
+    equiv_make gold gate equiv
+    hierarchy -top equiv
+    show -pause
+    equiv_simple  -v
+    equiv_status -assert
+"

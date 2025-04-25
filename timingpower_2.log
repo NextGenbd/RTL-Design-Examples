@@ -1,0 +1,49 @@
+Warning: ./lib/sky130_fd_sc_hd__tt_100C_1v80.lib line 23, default_fanout_load is 0.0.
+Startpoint: riscv/stage0/_2021_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: imem/icache/m_data/v_data_0_ram_single_0/_10962_
+          (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ riscv/stage0/_2021_/CLK (sky130_fd_sc_hd__dfxtp_1)
+   0.86    0.86 v riscv/stage0/_2021_/Q (sky130_fd_sc_hd__dfxtp_1)
+   3.51    4.37 ^ riscv/stage0/_0802_/Y (sky130_fd_sc_hd__nor4b_1)
+   0.24    4.61 ^ riscv/stage0/_1614_/X (sky130_fd_sc_hd__lpflow_inputiso1p_1)
+   0.16    4.77 ^ _05458_/X (sky130_fd_sc_hd__and2_0)
+   0.71    5.49 ^ imem/_2_/X (sky130_fd_sc_hd__lpflow_isobufsrc_1)
+   0.27    5.75 v imem/icache/_2474_/Y (sky130_fd_sc_hd__nand2_1)
+2359.98 2365.73 ^ imem/icache/_4733_/Y (sky130_fd_sc_hd__o21ai_0)
+ 846.42 3212.15 v imem/icache/m_data/v_data_0_ram_single_0/_05466_/Y (sky130_fd_sc_hd__clkinv_1)
+ 157.10 3369.25 ^ imem/icache/m_data/v_data_0_ram_single_0/_06945_/Y (sky130_fd_sc_hd__nand4_1)
+ 186.64 3555.89 v imem/icache/m_data/v_data_0_ram_single_0/_09040_/Y (sky130_fd_sc_hd__nor2_1)
+  13.73 3569.62 ^ imem/icache/m_data/v_data_0_ram_single_0/_09042_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.00 3569.62 ^ imem/icache/m_data/v_data_0_ram_single_0/_10962_/D (sky130_fd_sc_hd__dfxtp_1)
+        3569.62   data arrival time
+
+4000.00 4000.00   clock clk (rise edge)
+   0.00 4000.00   clock network delay (ideal)
+   0.00 4000.00   clock reconvergence pessimism
+        4000.00 ^ imem/icache/m_data/v_data_0_ram_single_0/_10962_/CLK (sky130_fd_sc_hd__dfxtp_1)
+  -0.87 3999.13   library setup time
+        3999.13   data required time
+---------------------------------------------------------
+        3999.13   data required time
+        -3569.62   data arrival time
+---------------------------------------------------------
+         429.51   slack (MET)
+
+
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             3.42e-03   6.72e-05   8.36e-04   4.33e-03  74.2%
+Combinational          6.31e-04   1.68e-04   7.10e-04   1.51e-03  25.9%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  4.06e-03   2.35e-04   1.54e-03   5.83e-03 100.0%
+                          69.6%       4.0%      26.4%

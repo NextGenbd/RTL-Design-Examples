@@ -1,0 +1,2902 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2019  Clifford Wolf <clifford@clifford.at>           |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.9 (git sha1 1979e0b)
+
+
+-- Running command `
+read_verilog ./verilog/*.v;
+hierarchy -check -top mkrestoring_div;
+proc; opt; fsm; opt; memory; opt;
+techmap; opt;
+dfflibmap -liberty ./lib/sky130_fd_sc_hvl__tt_100C_3v30.lib ; 
+abc -liberty ./lib/sky130_fd_sc_hvl__tt_100C_3v30.lib ;
+clean;
+write_verilog -noattr synth_div.yv
+' --
+
+1. Executing Verilog-2005 frontend: ./verilog/BRAM1.v
+Parsing Verilog input from `./verilog/BRAM1.v' to AST representation.
+Warning: Found one of those horrible `(synopsys|synthesis) translate_off' comments.
+Yosys does support them but it is recommended to use `ifdef constructs instead!
+Generating RTLIL representation for module `\BRAM1'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: ./verilog/BRAM1BE.v
+Parsing Verilog input from `./verilog/BRAM1BE.v' to AST representation.
+Generating RTLIL representation for module `\BRAM1BE'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: ./verilog/BRAM2.v
+Parsing Verilog input from `./verilog/BRAM2.v' to AST representation.
+Generating RTLIL representation for module `\BRAM2'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: ./verilog/BypassCrossingWire.v
+Parsing Verilog input from `./verilog/BypassCrossingWire.v' to AST representation.
+Generating RTLIL representation for module `\BypassCrossingWire'.
+Successfully finished Verilog frontend.
+
+5. Executing Verilog-2005 frontend: ./verilog/BypassWire.v
+Parsing Verilog input from `./verilog/BypassWire.v' to AST representation.
+Generating RTLIL representation for module `\BypassWire'.
+Successfully finished Verilog frontend.
+
+6. Executing Verilog-2005 frontend: ./verilog/BypassWire0.v
+Parsing Verilog input from `./verilog/BypassWire0.v' to AST representation.
+Generating RTLIL representation for module `\BypassWire0'.
+Successfully finished Verilog frontend.
+
+7. Executing Verilog-2005 frontend: ./verilog/CRegA5.v
+Parsing Verilog input from `./verilog/CRegA5.v' to AST representation.
+Generating RTLIL representation for module `\CRegA5'.
+Successfully finished Verilog frontend.
+
+8. Executing Verilog-2005 frontend: ./verilog/CRegN5.v
+Parsing Verilog input from `./verilog/CRegN5.v' to AST representation.
+Generating RTLIL representation for module `\CRegN5'.
+Successfully finished Verilog frontend.
+
+9. Executing Verilog-2005 frontend: ./verilog/CRegUN5.v
+Parsing Verilog input from `./verilog/CRegUN5.v' to AST representation.
+Generating RTLIL representation for module `\CRegUN5'.
+Successfully finished Verilog frontend.
+
+10. Executing Verilog-2005 frontend: ./verilog/ClockDiv.v
+Parsing Verilog input from `./verilog/ClockDiv.v' to AST representation.
+Generating RTLIL representation for module `\ClockDiv'.
+Note: Assuming pure combinatorial block at ./verilog/ClockDiv.v:60 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+11. Executing Verilog-2005 frontend: ./verilog/ClockGen.v
+Parsing Verilog input from `./verilog/ClockGen.v' to AST representation.
+Generating RTLIL representation for module `\ClockGen'.
+Successfully finished Verilog frontend.
+
+12. Executing Verilog-2005 frontend: ./verilog/ClockInverter.v
+Parsing Verilog input from `./verilog/ClockInverter.v' to AST representation.
+Generating RTLIL representation for module `\ClockInverter'.
+Successfully finished Verilog frontend.
+
+13. Executing Verilog-2005 frontend: ./verilog/ClockMux.v
+Parsing Verilog input from `./verilog/ClockMux.v' to AST representation.
+Generating RTLIL representation for module `\ClockMux'.
+Successfully finished Verilog frontend.
+
+14. Executing Verilog-2005 frontend: ./verilog/ClockSelect.v
+Parsing Verilog input from `./verilog/ClockSelect.v' to AST representation.
+Generating RTLIL representation for module `\ClockSelect'.
+Successfully finished Verilog frontend.
+
+15. Executing Verilog-2005 frontend: ./verilog/ConfigRegA.v
+Parsing Verilog input from `./verilog/ConfigRegA.v' to AST representation.
+Generating RTLIL representation for module `\ConfigRegA'.
+Successfully finished Verilog frontend.
+
+16. Executing Verilog-2005 frontend: ./verilog/ConfigRegN.v
+Parsing Verilog input from `./verilog/ConfigRegN.v' to AST representation.
+Generating RTLIL representation for module `\ConfigRegN'.
+Successfully finished Verilog frontend.
+
+17. Executing Verilog-2005 frontend: ./verilog/ConfigRegUN.v
+Parsing Verilog input from `./verilog/ConfigRegUN.v' to AST representation.
+Generating RTLIL representation for module `\ConfigRegUN'.
+Successfully finished Verilog frontend.
+
+18. Executing Verilog-2005 frontend: ./verilog/ConstrainedRandom.v
+Parsing Verilog input from `./verilog/ConstrainedRandom.v' to AST representation.
+Generating RTLIL representation for module `\ConstrainedRandom'.
+./verilog/ConstrainedRandom.v:40: Warning: Identifier `\$random' is implicitly declared.
+Successfully finished Verilog frontend.
+
+19. Executing Verilog-2005 frontend: ./verilog/Counter.v
+Parsing Verilog input from `./verilog/Counter.v' to AST representation.
+Generating RTLIL representation for module `\Counter'.
+Successfully finished Verilog frontend.
+
+20. Executing Verilog-2005 frontend: ./verilog/CrossingBypassWire.v
+Parsing Verilog input from `./verilog/CrossingBypassWire.v' to AST representation.
+Generating RTLIL representation for module `\CrossingBypassWire'.
+Successfully finished Verilog frontend.
+
+21. Executing Verilog-2005 frontend: ./verilog/CrossingRegA.v
+Parsing Verilog input from `./verilog/CrossingRegA.v' to AST representation.
+Generating RTLIL representation for module `\CrossingRegA'.
+Successfully finished Verilog frontend.
+
+22. Executing Verilog-2005 frontend: ./verilog/CrossingRegN.v
+Parsing Verilog input from `./verilog/CrossingRegN.v' to AST representation.
+Generating RTLIL representation for module `\CrossingRegN'.
+Successfully finished Verilog frontend.
+
+23. Executing Verilog-2005 frontend: ./verilog/CrossingRegUN.v
+Parsing Verilog input from `./verilog/CrossingRegUN.v' to AST representation.
+Generating RTLIL representation for module `\CrossingRegUN'.
+Successfully finished Verilog frontend.
+
+24. Executing Verilog-2005 frontend: ./verilog/DualPortRam.v
+Parsing Verilog input from `./verilog/DualPortRam.v' to AST representation.
+Generating RTLIL representation for module `\DualPortRam'.
+Successfully finished Verilog frontend.
+
+25. Executing Verilog-2005 frontend: ./verilog/Empty.v
+Parsing Verilog input from `./verilog/Empty.v' to AST representation.
+Generating RTLIL representation for module `\Empty'.
+Successfully finished Verilog frontend.
+
+26. Executing Verilog-2005 frontend: ./verilog/FIFO1.v
+Parsing Verilog input from `./verilog/FIFO1.v' to AST representation.
+Generating RTLIL representation for module `\FIFO1'.
+Successfully finished Verilog frontend.
+
+27. Executing Verilog-2005 frontend: ./verilog/FIFO10.v
+Parsing Verilog input from `./verilog/FIFO10.v' to AST representation.
+Generating RTLIL representation for module `\FIFO10'.
+Successfully finished Verilog frontend.
+
+28. Executing Verilog-2005 frontend: ./verilog/FIFO2.v
+Parsing Verilog input from `./verilog/FIFO2.v' to AST representation.
+Generating RTLIL representation for module `\FIFO2'.
+Successfully finished Verilog frontend.
+
+29. Executing Verilog-2005 frontend: ./verilog/FIFO20.v
+Parsing Verilog input from `./verilog/FIFO20.v' to AST representation.
+Generating RTLIL representation for module `\FIFO20'.
+Successfully finished Verilog frontend.
+
+30. Executing Verilog-2005 frontend: ./verilog/FIFOL1.v
+Parsing Verilog input from `./verilog/FIFOL1.v' to AST representation.
+Generating RTLIL representation for module `\FIFOL1'.
+Successfully finished Verilog frontend.
+
+31. Executing Verilog-2005 frontend: ./verilog/FIFOL10.v
+Parsing Verilog input from `./verilog/FIFOL10.v' to AST representation.
+Generating RTLIL representation for module `\FIFOL10'.
+Successfully finished Verilog frontend.
+
+32. Executing Verilog-2005 frontend: ./verilog/FIFOL2.v
+Parsing Verilog input from `./verilog/FIFOL2.v' to AST representation.
+Generating RTLIL representation for module `\FIFOL2'.
+Successfully finished Verilog frontend.
+
+33. Executing Verilog-2005 frontend: ./verilog/FIFOL20.v
+Parsing Verilog input from `./verilog/FIFOL20.v' to AST representation.
+Generating RTLIL representation for module `\FIFOL20'.
+Successfully finished Verilog frontend.
+
+34. Executing Verilog-2005 frontend: ./verilog/Fork.v
+Parsing Verilog input from `./verilog/Fork.v' to AST representation.
+Generating RTLIL representation for module `\Fork'.
+Successfully finished Verilog frontend.
+
+35. Executing Verilog-2005 frontend: ./verilog/GatedClock.v
+Parsing Verilog input from `./verilog/GatedClock.v' to AST representation.
+Generating RTLIL representation for module `\GatedClock'.
+Note: Assuming pure combinatorial block at ./verilog/GatedClock.v:62 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+36. Executing Verilog-2005 frontend: ./verilog/GatedClockDiv.v
+Parsing Verilog input from `./verilog/GatedClockDiv.v' to AST representation.
+Generating RTLIL representation for module `\GatedClockDiv'.
+Note: Assuming pure combinatorial block at ./verilog/GatedClockDiv.v:70 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/GatedClockDiv.v:99 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+37. Executing Verilog-2005 frontend: ./verilog/GatedClockInverter.v
+Parsing Verilog input from `./verilog/GatedClockInverter.v' to AST representation.
+Generating RTLIL representation for module `\GatedClockInverter'.
+Note: Assuming pure combinatorial block at ./verilog/GatedClockInverter.v:27 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+38. Executing Verilog-2005 frontend: ./verilog/InitialReset.v
+Parsing Verilog input from `./verilog/InitialReset.v' to AST representation.
+Generating RTLIL representation for module `\InitialReset'.
+Successfully finished Verilog frontend.
+
+39. Executing Verilog-2005 frontend: ./verilog/LatchCrossingReg.v
+Parsing Verilog input from `./verilog/LatchCrossingReg.v' to AST representation.
+Generating RTLIL representation for module `\LatchCrossingReg'.
+Note: Assuming pure combinatorial block at ./verilog/LatchCrossingReg.v:46 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+40. Executing Verilog-2005 frontend: ./verilog/MakeClock.v
+Parsing Verilog input from `./verilog/MakeClock.v' to AST representation.
+Generating RTLIL representation for module `\MakeClock'.
+Note: Assuming pure combinatorial block at ./verilog/MakeClock.v:99 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+41. Executing Verilog-2005 frontend: ./verilog/MakeReset.v
+Parsing Verilog input from `./verilog/MakeReset.v' to AST representation.
+Generating RTLIL representation for module `\MakeReset'.
+Successfully finished Verilog frontend.
+
+42. Executing Verilog-2005 frontend: ./verilog/MakeReset0.v
+Parsing Verilog input from `./verilog/MakeReset0.v' to AST representation.
+Generating RTLIL representation for module `\MakeReset0'.
+Successfully finished Verilog frontend.
+
+43. Executing Verilog-2005 frontend: ./verilog/MakeResetA.v
+Parsing Verilog input from `./verilog/MakeResetA.v' to AST representation.
+Generating RTLIL representation for module `\MakeResetA'.
+Successfully finished Verilog frontend.
+
+44. Executing Verilog-2005 frontend: ./verilog/ProbeCapture.v
+Parsing Verilog input from `./verilog/ProbeCapture.v' to AST representation.
+Generating RTLIL representation for module `\ProbeCapture'.
+Note: Assuming pure combinatorial block at ./verilog/ProbeCapture.v:161 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+45. Executing Verilog-2005 frontend: ./verilog/ProbeMux.v
+Parsing Verilog input from `./verilog/ProbeMux.v' to AST representation.
+Generating RTLIL representation for module `\ProbeMux'.
+Successfully finished Verilog frontend.
+
+46. Executing Verilog-2005 frontend: ./verilog/ProbeTrigger.v
+Parsing Verilog input from `./verilog/ProbeTrigger.v' to AST representation.
+Generating RTLIL representation for module `\ProbeTrigger'.
+Successfully finished Verilog frontend.
+
+47. Executing Verilog-2005 frontend: ./verilog/ProbeValue.v
+Parsing Verilog input from `./verilog/ProbeValue.v' to AST representation.
+Generating RTLIL representation for module `\ProbeValue'.
+Successfully finished Verilog frontend.
+
+48. Executing Verilog-2005 frontend: ./verilog/ProbeWire.v
+Parsing Verilog input from `./verilog/ProbeWire.v' to AST representation.
+Generating RTLIL representation for module `\ProbeWire'.
+Successfully finished Verilog frontend.
+
+49. Executing Verilog-2005 frontend: ./verilog/RWire.v
+Parsing Verilog input from `./verilog/RWire.v' to AST representation.
+Generating RTLIL representation for module `\RWire'.
+Successfully finished Verilog frontend.
+
+50. Executing Verilog-2005 frontend: ./verilog/RWire0.v
+Parsing Verilog input from `./verilog/RWire0.v' to AST representation.
+Generating RTLIL representation for module `\RWire0'.
+Successfully finished Verilog frontend.
+
+51. Executing Verilog-2005 frontend: ./verilog/RegA.v
+Parsing Verilog input from `./verilog/RegA.v' to AST representation.
+Generating RTLIL representation for module `\RegA'.
+Successfully finished Verilog frontend.
+
+52. Executing Verilog-2005 frontend: ./verilog/RegAligned.v
+Parsing Verilog input from `./verilog/RegAligned.v' to AST representation.
+Generating RTLIL representation for module `\RegAligned'.
+Successfully finished Verilog frontend.
+
+53. Executing Verilog-2005 frontend: ./verilog/RegFile.v
+Parsing Verilog input from `./verilog/RegFile.v' to AST representation.
+Generating RTLIL representation for module `\RegFile'.
+Successfully finished Verilog frontend.
+
+54. Executing Verilog-2005 frontend: ./verilog/RegN.v
+Parsing Verilog input from `./verilog/RegN.v' to AST representation.
+Generating RTLIL representation for module `\RegN'.
+Successfully finished Verilog frontend.
+
+55. Executing Verilog-2005 frontend: ./verilog/RegTwoA.v
+Parsing Verilog input from `./verilog/RegTwoA.v' to AST representation.
+Generating RTLIL representation for module `\RegTwoA'.
+Successfully finished Verilog frontend.
+
+56. Executing Verilog-2005 frontend: ./verilog/RegTwoN.v
+Parsing Verilog input from `./verilog/RegTwoN.v' to AST representation.
+Generating RTLIL representation for module `\RegTwoN'.
+Successfully finished Verilog frontend.
+
+57. Executing Verilog-2005 frontend: ./verilog/RegTwoUN.v
+Parsing Verilog input from `./verilog/RegTwoUN.v' to AST representation.
+Generating RTLIL representation for module `\RegTwoUN'.
+Successfully finished Verilog frontend.
+
+58. Executing Verilog-2005 frontend: ./verilog/RegUN.v
+Parsing Verilog input from `./verilog/RegUN.v' to AST representation.
+Generating RTLIL representation for module `\RegUN'.
+Successfully finished Verilog frontend.
+
+59. Executing Verilog-2005 frontend: ./verilog/ResetEither.v
+Parsing Verilog input from `./verilog/ResetEither.v' to AST representation.
+Generating RTLIL representation for module `\ResetEither'.
+Successfully finished Verilog frontend.
+
+60. Executing Verilog-2005 frontend: ./verilog/ResetInverter.v
+Parsing Verilog input from `./verilog/ResetInverter.v' to AST representation.
+Generating RTLIL representation for module `\ResetInverter'.
+Successfully finished Verilog frontend.
+
+61. Executing Verilog-2005 frontend: ./verilog/ResetMux.v
+Parsing Verilog input from `./verilog/ResetMux.v' to AST representation.
+Generating RTLIL representation for module `\ResetMux'.
+Successfully finished Verilog frontend.
+
+62. Executing Verilog-2005 frontend: ./verilog/ResetToBool.v
+Parsing Verilog input from `./verilog/ResetToBool.v' to AST representation.
+Generating RTLIL representation for module `\ResetToBool'.
+Successfully finished Verilog frontend.
+
+63. Executing Verilog-2005 frontend: ./verilog/RevertReg.v
+Parsing Verilog input from `./verilog/RevertReg.v' to AST representation.
+Generating RTLIL representation for module `\RevertReg'.
+Successfully finished Verilog frontend.
+
+64. Executing Verilog-2005 frontend: ./verilog/SampleReg.v
+Parsing Verilog input from `./verilog/SampleReg.v' to AST representation.
+Generating RTLIL representation for module `\SampleReg'.
+Successfully finished Verilog frontend.
+
+65. Executing Verilog-2005 frontend: ./verilog/ScanIn.v
+Parsing Verilog input from `./verilog/ScanIn.v' to AST representation.
+Generating RTLIL representation for module `\ScanIn'.
+Successfully finished Verilog frontend.
+
+66. Executing Verilog-2005 frontend: ./verilog/SizedFIFO.v
+Parsing Verilog input from `./verilog/SizedFIFO.v' to AST representation.
+Generating RTLIL representation for module `\SizedFIFO'.
+Successfully finished Verilog frontend.
+
+67. Executing Verilog-2005 frontend: ./verilog/SizedFIFO0.v
+Parsing Verilog input from `./verilog/SizedFIFO0.v' to AST representation.
+Generating RTLIL representation for module `\SizedFIFO0'.
+Successfully finished Verilog frontend.
+
+68. Executing Verilog-2005 frontend: ./verilog/SizedFIFOL.v
+Parsing Verilog input from `./verilog/SizedFIFOL.v' to AST representation.
+Generating RTLIL representation for module `\SizedFIFOL'.
+Successfully finished Verilog frontend.
+
+69. Executing Verilog-2005 frontend: ./verilog/SizedFIFOL0.v
+Parsing Verilog input from `./verilog/SizedFIFOL0.v' to AST representation.
+Generating RTLIL representation for module `\SizedFIFOL0'.
+Successfully finished Verilog frontend.
+
+70. Executing Verilog-2005 frontend: ./verilog/SyncBit.v
+Parsing Verilog input from `./verilog/SyncBit.v' to AST representation.
+Generating RTLIL representation for module `\SyncBit'.
+Successfully finished Verilog frontend.
+
+71. Executing Verilog-2005 frontend: ./verilog/SyncBit05.v
+Parsing Verilog input from `./verilog/SyncBit05.v' to AST representation.
+Generating RTLIL representation for module `\SyncBit05'.
+Successfully finished Verilog frontend.
+
+72. Executing Verilog-2005 frontend: ./verilog/SyncBit1.v
+Parsing Verilog input from `./verilog/SyncBit1.v' to AST representation.
+Generating RTLIL representation for module `\SyncBit1'.
+Successfully finished Verilog frontend.
+
+73. Executing Verilog-2005 frontend: ./verilog/SyncBit15.v
+Parsing Verilog input from `./verilog/SyncBit15.v' to AST representation.
+Generating RTLIL representation for module `\SyncBit15'.
+Successfully finished Verilog frontend.
+
+74. Executing Verilog-2005 frontend: ./verilog/SyncFIFO.v
+Parsing Verilog input from `./verilog/SyncFIFO.v' to AST representation.
+Generating RTLIL representation for module `\SyncFIFO'.
+Successfully finished Verilog frontend.
+
+75. Executing Verilog-2005 frontend: ./verilog/SyncFIFO0.v
+Parsing Verilog input from `./verilog/SyncFIFO0.v' to AST representation.
+Generating RTLIL representation for module `\SyncFIFO0'.
+Successfully finished Verilog frontend.
+
+76. Executing Verilog-2005 frontend: ./verilog/SyncFIFO1.v
+Parsing Verilog input from `./verilog/SyncFIFO1.v' to AST representation.
+Generating RTLIL representation for module `\SyncFIFO1'.
+Successfully finished Verilog frontend.
+
+77. Executing Verilog-2005 frontend: ./verilog/SyncFIFO10.v
+Parsing Verilog input from `./verilog/SyncFIFO10.v' to AST representation.
+Generating RTLIL representation for module `\SyncFIFO10'.
+Successfully finished Verilog frontend.
+
+78. Executing Verilog-2005 frontend: ./verilog/SyncFIFOLevel.v
+Parsing Verilog input from `./verilog/SyncFIFOLevel.v' to AST representation.
+Generating RTLIL representation for module `\SyncFIFOLevel'.
+Successfully finished Verilog frontend.
+
+79. Executing Verilog-2005 frontend: ./verilog/SyncFIFOLevel0.v
+Parsing Verilog input from `./verilog/SyncFIFOLevel0.v' to AST representation.
+Generating RTLIL representation for module `\SyncFIFOLevel0'.
+Successfully finished Verilog frontend.
+
+80. Executing Verilog-2005 frontend: ./verilog/SyncHandshake.v
+Parsing Verilog input from `./verilog/SyncHandshake.v' to AST representation.
+Generating RTLIL representation for module `\SyncHandshake'.
+Successfully finished Verilog frontend.
+
+81. Executing Verilog-2005 frontend: ./verilog/SyncPulse.v
+Parsing Verilog input from `./verilog/SyncPulse.v' to AST representation.
+Generating RTLIL representation for module `\SyncPulse'.
+Successfully finished Verilog frontend.
+
+82. Executing Verilog-2005 frontend: ./verilog/SyncRegister.v
+Parsing Verilog input from `./verilog/SyncRegister.v' to AST representation.
+Generating RTLIL representation for module `\SyncRegister'.
+Successfully finished Verilog frontend.
+
+83. Executing Verilog-2005 frontend: ./verilog/SyncReset.v
+Parsing Verilog input from `./verilog/SyncReset.v' to AST representation.
+Generating RTLIL representation for module `\SyncReset'.
+Successfully finished Verilog frontend.
+
+84. Executing Verilog-2005 frontend: ./verilog/SyncReset0.v
+Parsing Verilog input from `./verilog/SyncReset0.v' to AST representation.
+Generating RTLIL representation for module `\SyncReset0'.
+Successfully finished Verilog frontend.
+
+85. Executing Verilog-2005 frontend: ./verilog/SyncResetA.v
+Parsing Verilog input from `./verilog/SyncResetA.v' to AST representation.
+Generating RTLIL representation for module `\SyncResetA'.
+Successfully finished Verilog frontend.
+
+86. Executing Verilog-2005 frontend: ./verilog/SyncWire.v
+Parsing Verilog input from `./verilog/SyncWire.v' to AST representation.
+Generating RTLIL representation for module `\SyncWire'.
+Successfully finished Verilog frontend.
+
+87. Executing Verilog-2005 frontend: ./verilog/TriState.v
+Parsing Verilog input from `./verilog/TriState.v' to AST representation.
+Warning: Yosys has only limited support for tri-state logic at the moment. (./verilog/TriState.v:27)
+Generating RTLIL representation for module `\TriState'.
+Successfully finished Verilog frontend.
+
+88. Executing Verilog-2005 frontend: ./verilog/UngatedClockMux.v
+Parsing Verilog input from `./verilog/UngatedClockMux.v' to AST representation.
+Generating RTLIL representation for module `\UngatedClockMux'.
+Successfully finished Verilog frontend.
+
+89. Executing Verilog-2005 frontend: ./verilog/UngatedClockSelect.v
+Parsing Verilog input from `./verilog/UngatedClockSelect.v' to AST representation.
+Generating RTLIL representation for module `\UngatedClockSelect'.
+Successfully finished Verilog frontend.
+
+90. Executing Verilog-2005 frontend: ./verilog/bram_1r1w.v
+Parsing Verilog input from `./verilog/bram_1r1w.v' to AST representation.
+Generating RTLIL representation for module `\bram_1r1w'.
+Successfully finished Verilog frontend.
+
+91. Executing Verilog-2005 frontend: ./verilog/bram_1rw.v
+Parsing Verilog input from `./verilog/bram_1rw.v' to AST representation.
+Generating RTLIL representation for module `\bram_1rw'.
+Successfully finished Verilog frontend.
+
+92. Executing Verilog-2005 frontend: ./verilog/bram_2rw.v
+Parsing Verilog input from `./verilog/bram_2rw.v' to AST representation.
+Generating RTLIL representation for module `\bram_2rw'.
+Successfully finished Verilog frontend.
+
+93. Executing Verilog-2005 frontend: ./verilog/mk_csr_daisy.v
+Parsing Verilog input from `./verilog/mk_csr_daisy.v' to AST representation.
+Generating RTLIL representation for module `\mk_csr_daisy'.
+Successfully finished Verilog frontend.
+
+94. Executing Verilog-2005 frontend: ./verilog/mk_csr_grp1.v
+Parsing Verilog input from `./verilog/mk_csr_grp1.v' to AST representation.
+Warning: Found one of those horrible `(synopsys|synthesis) parallel_case' comments.
+Yosys does support them but it is recommended to use Verilog `parallel_case' attributes instead!
+Generating RTLIL representation for module `\mk_csr_grp1'.
+Note: Assuming pure combinatorial block at ./verilog/mk_csr_grp1.v:902 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mk_csr_grp1.v:911 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mk_csr_grp1.v:1052 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mk_csr_grp1.v:1085 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mk_csr_grp1.v:1102 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mk_csr_grp1.v:1207 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mk_csr_grp1.v:1247 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mk_csr_grp1.v:1266 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mk_csr_grp1.v:1538 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mk_csr_grp1.v:1619 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+95. Executing Verilog-2005 frontend: ./verilog/mk_csr_grp2.v
+Parsing Verilog input from `./verilog/mk_csr_grp2.v' to AST representation.
+Generating RTLIL representation for module `\mk_csr_grp2'.
+Note: Assuming pure combinatorial block at ./verilog/mk_csr_grp2.v:331 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mk_csr_grp2.v:571 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mk_csr_grp2.v:610 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+96. Executing Verilog-2005 frontend: ./verilog/mk_csr_grp3.v
+Parsing Verilog input from `./verilog/mk_csr_grp3.v' to AST representation.
+Generating RTLIL representation for module `\mk_csr_grp3'.
+Note: Assuming pure combinatorial block at ./verilog/mk_csr_grp3.v:352 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mk_csr_grp3.v:468 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mk_csr_grp3.v:480 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mk_csr_grp3.v:492 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mk_csr_grp3.v:507 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+97. Executing Verilog-2005 frontend: ./verilog/mk_csr_grp4.v
+Parsing Verilog input from `./verilog/mk_csr_grp4.v' to AST representation.
+Generating RTLIL representation for module `\mk_csr_grp4'.
+Note: Assuming pure combinatorial block at ./verilog/mk_csr_grp4.v:354 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mk_csr_grp4.v:605 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mk_csr_grp4.v:665 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+98. Executing Verilog-2005 frontend: ./verilog/mk_csr_grp5.v
+Parsing Verilog input from `./verilog/mk_csr_grp5.v' to AST representation.
+Generating RTLIL representation for module `\mk_csr_grp5'.
+Note: Assuming pure combinatorial block at ./verilog/mk_csr_grp5.v:354 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mk_csr_grp5.v:605 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mk_csr_grp5.v:665 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+99. Executing Verilog-2005 frontend: ./verilog/mk_csr_grp6.v
+Parsing Verilog input from `./verilog/mk_csr_grp6.v' to AST representation.
+Generating RTLIL representation for module `\mk_csr_grp6'.
+Note: Assuming pure combinatorial block at ./verilog/mk_csr_grp6.v:354 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mk_csr_grp6.v:605 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mk_csr_grp6.v:665 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+100. Executing Verilog-2005 frontend: ./verilog/mk_csr_grp7.v
+Parsing Verilog input from `./verilog/mk_csr_grp7.v' to AST representation.
+Generating RTLIL representation for module `\mk_csr_grp7'.
+Note: Assuming pure combinatorial block at ./verilog/mk_csr_grp7.v:328 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mk_csr_grp7.v:367 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mk_csr_grp7.v:585 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+101. Executing Verilog-2005 frontend: ./verilog/mkbpu.v
+Parsing Verilog input from `./verilog/mkbpu.v' to AST representation.
+Generating RTLIL representation for module `\mkbpu'.
+Note: Assuming pure combinatorial block at ./verilog/mkbpu.v:19101 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkbpu.v:20128 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkbpu.v:21155 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkbpu.v:21168 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkbpu.v:21178 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+102. Executing Verilog-2005 frontend: ./verilog/mkccore_axi4.v
+Parsing Verilog input from `./verilog/mkccore_axi4.v' to AST representation.
+Generating RTLIL representation for module `\mkccore_axi4'.
+Note: Assuming pure combinatorial block at ./verilog/mkccore_axi4.v:1998 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkccore_axi4.v:2028 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkccore_axi4.v:2243 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkccore_axi4.v:2601 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkccore_axi4.v:2609 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkccore_axi4.v:2617 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+103. Executing Verilog-2005 frontend: ./verilog/mkcombo_mul.v
+Parsing Verilog input from `./verilog/mkcombo_mul.v' to AST representation.
+Generating RTLIL representation for module `\mkcombo_mul'.
+Successfully finished Verilog frontend.
+
+104. Executing Verilog-2005 frontend: ./verilog/mkcsr.v
+Parsing Verilog input from `./verilog/mkcsr.v' to AST representation.
+Generating RTLIL representation for module `\mkcsr'.
+Successfully finished Verilog frontend.
+
+105. Executing Verilog-2005 frontend: ./verilog/mkdcache.v
+Parsing Verilog input from `./verilog/mkdcache.v' to AST representation.
+Generating RTLIL representation for module `\mkdcache'.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:4217 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:4238 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:4259 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:4280 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:4301 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:4322 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:4343 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:4364 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:4385 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:4406 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:4427 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:4448 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:4469 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:4490 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:4511 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:4532 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:4553 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:4574 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:4595 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:4616 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:4637 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:4658 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:4679 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:4700 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:4721 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:4742 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:4763 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:4784 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:4805 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:4826 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:4847 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:4868 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:4889 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:4910 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:4931 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:4952 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:4973 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:4994 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5015 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5036 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5057 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5078 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5099 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5120 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5141 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5162 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5183 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5204 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5225 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5246 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5267 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5288 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5309 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5330 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5351 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5372 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5393 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5414 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5435 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5456 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5477 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5498 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5519 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5540 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5561 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5582 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5603 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5624 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5645 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5666 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5687 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5708 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5729 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5750 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5771 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5792 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5813 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5834 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5855 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5876 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5897 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5918 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5939 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5960 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:5981 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6002 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6023 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6044 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6065 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6086 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6107 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6128 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6149 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6170 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6191 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6212 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6233 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6254 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6275 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6296 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6317 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6338 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6359 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6380 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6401 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6422 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6443 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6464 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6485 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6506 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6527 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6548 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6569 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6590 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6611 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6632 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6653 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6674 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6695 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6716 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6737 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6758 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6779 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6800 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6821 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6842 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6863 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6884 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6937 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6971 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:6993 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:7009 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:7026 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:7132 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:7154 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:7170 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:7189 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:9149 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:9158 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:9167 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:9298 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:9429 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:9560 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:9691 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:9951 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:10082 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache.v:10341 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+106. Executing Verilog-2005 frontend: ./verilog/mkdcache_data.v
+Parsing Verilog input from `./verilog/mkdcache_data.v' to AST representation.
+Generating RTLIL representation for module `\mkdcache_data'.
+Successfully finished Verilog frontend.
+
+107. Executing Verilog-2005 frontend: ./verilog/mkdcache_fb_v2.v
+Parsing Verilog input from `./verilog/mkdcache_fb_v2.v' to AST representation.
+Generating RTLIL representation for module `\mkdcache_fb_v2'.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:955 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:1627 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:1651 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:1675 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:1699 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:1723 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:1747 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:1771 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:1795 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:1819 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:1843 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:1867 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:1891 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:1915 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:1939 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:1963 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:1987 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2011 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2035 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2059 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2083 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2107 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2131 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2155 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2179 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2203 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2227 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2251 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2275 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2299 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2323 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2347 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2371 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2395 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2419 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2443 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2467 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2491 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2515 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2539 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2563 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2587 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2611 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2635 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2659 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2683 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2707 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2731 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2755 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2779 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2803 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2827 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2851 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2875 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2899 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2923 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2947 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2971 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:2995 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:3019 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:3043 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:3067 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:3091 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:3115 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:3139 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:3291 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:3308 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:3325 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:3342 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:3359 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:3376 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:3393 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:3410 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:3590 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:3608 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:3626 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:3644 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:3662 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:3680 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:3698 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:3716 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:3734 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:3752 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:3769 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:3787 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:3805 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:3823 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:3841 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:3859 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:3877 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:3895 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:3913 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:3931 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:3965 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:3999 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:4033 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:4067 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:4101 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:4135 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:4169 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_fb_v2.v:4203 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+108. Executing Verilog-2005 frontend: ./verilog/mkdcache_tag.v
+Parsing Verilog input from `./verilog/mkdcache_tag.v' to AST representation.
+Generating RTLIL representation for module `\mkdcache_tag'.
+Note: Assuming pure combinatorial block at ./verilog/mkdcache_tag.v:280 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+109. Executing Verilog-2005 frontend: ./verilog/mkdmem.v
+Parsing Verilog input from `./verilog/mkdmem.v' to AST representation.
+Generating RTLIL representation for module `\mkdmem'.
+Successfully finished Verilog frontend.
+
+110. Executing Verilog-2005 frontend: ./verilog/mkfa_dtlb.v
+Parsing Verilog input from `./verilog/mkfa_dtlb.v' to AST representation.
+Generating RTLIL representation for module `\mkfa_dtlb'.
+Successfully finished Verilog frontend.
+
+111. Executing Verilog-2005 frontend: ./verilog/mkfa_itlb.v
+Parsing Verilog input from `./verilog/mkfa_itlb.v' to AST representation.
+Generating RTLIL representation for module `\mkfa_itlb'.
+Successfully finished Verilog frontend.
+
+112. Executing Verilog-2005 frontend: ./verilog/mkfpu.v
+Parsing Verilog input from `./verilog/mkfpu.v' to AST representation.
+Generating RTLIL representation for module `\mkfpu'.
+Note: Assuming pure combinatorial block at ./verilog/mkfpu.v:2122 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkfpu.v:2172 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkfpu.v:2217 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkfpu.v:2255 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkfpu.v:2478 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkfpu.v:2519 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkfpu.v:2594 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkfpu.v:2645 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkfpu.v:2751 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkfpu.v:2792 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkfpu.v:2867 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkfpu.v:2918 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkfpu.v:9725 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkfpu.v:9743 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkfpu.v:9762 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkfpu.v:9784 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkfpu.v:9802 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkfpu.v:9821 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkfpu.v:9843 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkfpu.v:9865 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkfpu.v:9879 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkfpu.v:9903 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkfpu.v:9927 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkfpu.v:9944 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkfpu.v:9974 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkfpu.v:9996 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkfpu.v:10013 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkfpu.v:10027 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkfpu.v:10057 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+113. Executing Verilog-2005 frontend: ./verilog/mkfwding.v
+Parsing Verilog input from `./verilog/mkfwding.v' to AST representation.
+Generating RTLIL representation for module `\mkfwding'.
+Successfully finished Verilog frontend.
+
+114. Executing Verilog-2005 frontend: ./verilog/mkicache.v
+Parsing Verilog input from `./verilog/mkicache.v' to AST representation.
+Generating RTLIL representation for module `\mkicache'.
+Note: Assuming pure combinatorial block at ./verilog/mkicache.v:3449 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkicache.v:3466 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkicache.v:3513 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkicache.v:3530 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkicache.v:4207 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkicache.v:4338 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkicache.v:4598 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+115. Executing Verilog-2005 frontend: ./verilog/mkicache_data.v
+Parsing Verilog input from `./verilog/mkicache_data.v' to AST representation.
+Generating RTLIL representation for module `\mkicache_data'.
+Successfully finished Verilog frontend.
+
+116. Executing Verilog-2005 frontend: ./verilog/mkicache_fb_v2.v
+Parsing Verilog input from `./verilog/mkicache_fb_v2.v' to AST representation.
+Generating RTLIL representation for module `\mkicache_fb_v2'.
+Note: Assuming pure combinatorial block at ./verilog/mkicache_fb_v2.v:789 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkicache_fb_v2.v:1856 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkicache_fb_v2.v:1873 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkicache_fb_v2.v:1890 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkicache_fb_v2.v:1907 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkicache_fb_v2.v:2207 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkicache_fb_v2.v:2217 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkicache_fb_v2.v:2228 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkicache_fb_v2.v:2239 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkicache_fb_v2.v:2250 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkicache_fb_v2.v:2261 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkicache_fb_v2.v:2272 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkicache_fb_v2.v:2282 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkicache_fb_v2.v:2292 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkicache_fb_v2.v:2302 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkicache_fb_v2.v:2312 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkicache_fb_v2.v:2322 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkicache_fb_v2.v:2332 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkicache_fb_v2.v:2342 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkicache_fb_v2.v:2352 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkicache_fb_v2.v:2362 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkicache_fb_v2.v:2371 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkicache_fb_v2.v:2381 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkicache_fb_v2.v:2392 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkicache_fb_v2.v:2427 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkicache_fb_v2.v:2462 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkicache_fb_v2.v:2497 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+117. Executing Verilog-2005 frontend: ./verilog/mkicache_tag.v
+Parsing Verilog input from `./verilog/mkicache_tag.v' to AST representation.
+Generating RTLIL representation for module `\mkicache_tag'.
+Note: Assuming pure combinatorial block at ./verilog/mkicache_tag.v:280 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+118. Executing Verilog-2005 frontend: ./verilog/mkimem.v
+Parsing Verilog input from `./verilog/mkimem.v' to AST representation.
+Generating RTLIL representation for module `\mkimem'.
+Successfully finished Verilog frontend.
+
+119. Executing Verilog-2005 frontend: ./verilog/mkinstance.v
+Parsing Verilog input from `./verilog/mkinstance.v' to AST representation.
+Generating RTLIL representation for module `\mkinstance'.
+Note: Assuming pure combinatorial block at ./verilog/mkinstance.v:506 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkinstance.v:528 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkinstance.v:801 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkinstance.v:809 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkinstance.v:817 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+120. Executing Verilog-2005 frontend: ./verilog/mkmbox.v
+Parsing Verilog input from `./verilog/mkmbox.v' to AST representation.
+Generating RTLIL representation for module `\mkmbox'.
+Successfully finished Verilog frontend.
+
+121. Executing Verilog-2005 frontend: ./verilog/mkmulticycle_alu.v
+Parsing Verilog input from `./verilog/mkmulticycle_alu.v' to AST representation.
+Generating RTLIL representation for module `\mkmulticycle_alu'.
+Successfully finished Verilog frontend.
+
+122. Executing Verilog-2005 frontend: ./verilog/mkregisterfile.v
+Parsing Verilog input from `./verilog/mkregisterfile.v' to AST representation.
+Generating RTLIL representation for module `\mkregisterfile'.
+Successfully finished Verilog frontend.
+
+123. Executing Verilog-2005 frontend: ./verilog/mkrestoring_div.v
+Parsing Verilog input from `./verilog/mkrestoring_div.v' to AST representation.
+Generating RTLIL representation for module `\mkrestoring_div'.
+Successfully finished Verilog frontend.
+
+124. Executing Verilog-2005 frontend: ./verilog/mkriscv.v
+Parsing Verilog input from `./verilog/mkriscv.v' to AST representation.
+Generating RTLIL representation for module `\mkriscv'.
+Note: Assuming pure combinatorial block at ./verilog/mkriscv.v:2133 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+125. Executing Verilog-2005 frontend: ./verilog/mksign_dump.v
+Parsing Verilog input from `./verilog/mksign_dump.v' to AST representation.
+Generating RTLIL representation for module `\mksign_dump'.
+./verilog/mksign_dump.v:871: Warning: Identifier `\TASK_fopen___d3' is implicitly declared.
+Note: Assuming pure combinatorial block at ./verilog/mksign_dump.v:1012 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+126. Executing Verilog-2005 frontend: ./verilog/mkstage0.v
+Parsing Verilog input from `./verilog/mkstage0.v' to AST representation.
+Generating RTLIL representation for module `\mkstage0'.
+Successfully finished Verilog frontend.
+
+127. Executing Verilog-2005 frontend: ./verilog/mkstage1.v
+Parsing Verilog input from `./verilog/mkstage1.v' to AST representation.
+Generating RTLIL representation for module `\mkstage1'.
+Successfully finished Verilog frontend.
+
+128. Executing Verilog-2005 frontend: ./verilog/mkstage2.v
+Parsing Verilog input from `./verilog/mkstage2.v' to AST representation.
+Generating RTLIL representation for module `\mkstage2'.
+Note: Assuming pure combinatorial block at ./verilog/mkstage2.v:998 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkstage2.v:1005 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+129. Executing Verilog-2005 frontend: ./verilog/mkstage3.v
+Parsing Verilog input from `./verilog/mkstage3.v' to AST representation.
+Generating RTLIL representation for module `\mkstage3'.
+Note: Assuming pure combinatorial block at ./verilog/mkstage3.v:2329 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkstage3.v:2340 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkstage3.v:2351 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+130. Executing Verilog-2005 frontend: ./verilog/mkstage4.v
+Parsing Verilog input from `./verilog/mkstage4.v' to AST representation.
+Generating RTLIL representation for module `\mkstage4'.
+Note: Assuming pure combinatorial block at ./verilog/mkstage4.v:681 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+131. Executing Verilog-2005 frontend: ./verilog/mkstage5.v
+Parsing Verilog input from `./verilog/mkstage5.v' to AST representation.
+Generating RTLIL representation for module `\mkstage5'.
+Note: Assuming pure combinatorial block at ./verilog/mkstage5.v:1275 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+132. Executing Verilog-2005 frontend: ./verilog/mkstorebuffer.v
+Parsing Verilog input from `./verilog/mkstorebuffer.v' to AST representation.
+Generating RTLIL representation for module `\mkstorebuffer'.
+Note: Assuming pure combinatorial block at ./verilog/mkstorebuffer.v:333 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkstorebuffer.v:490 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkstorebuffer.v:499 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkstorebuffer.v:506 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkstorebuffer.v:513 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkstorebuffer.v:520 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkstorebuffer.v:527 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkstorebuffer.v:534 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkstorebuffer.v:541 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkstorebuffer.v:548 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkstorebuffer.v:557 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkstorebuffer.v:564 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkstorebuffer.v:610 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkstorebuffer.v:623 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkstorebuffer.v:636 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkstorebuffer.v:647 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkstorebuffer.v:658 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkstorebuffer.v:669 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkstorebuffer.v:680 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkstorebuffer.v:691 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkstorebuffer.v:702 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/mkstorebuffer.v:713 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+133. Executing Verilog-2005 frontend: ./verilog/module_address_valid.v
+Parsing Verilog input from `./verilog/module_address_valid.v' to AST representation.
+Generating RTLIL representation for module `\module_address_valid'.
+Note: Assuming pure combinatorial block at ./verilog/module_address_valid.v:53 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_address_valid.v:85 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_address_valid.v:103 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_address_valid.v:120 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_address_valid.v:147 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_address_valid.v:160 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_address_valid.v:175 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+134. Executing Verilog-2005 frontend: ./verilog/module_chk_interrupt.v
+Parsing Verilog input from `./verilog/module_chk_interrupt.v' to AST representation.
+Generating RTLIL representation for module `\module_chk_interrupt'.
+Successfully finished Verilog frontend.
+
+135. Executing Verilog-2005 frontend: ./verilog/module_decode_word32.v
+Parsing Verilog input from `./verilog/module_decode_word32.v' to AST representation.
+Generating RTLIL representation for module `\module_decode_word32'.
+Successfully finished Verilog frontend.
+
+136. Executing Verilog-2005 frontend: ./verilog/module_decoder_func_32.v
+Parsing Verilog input from `./verilog/module_decoder_func_32.v' to AST representation.
+Generating RTLIL representation for module `\module_decoder_func_32'.
+Note: Assuming pure combinatorial block at ./verilog/module_decoder_func_32.v:526 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_decoder_func_32.v:534 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_decoder_func_32.v:542 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_decoder_func_32.v:553 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_decoder_func_32.v:587 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_decoder_func_32.v:607 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_decoder_func_32.v:645 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_decoder_func_32.v:678 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_decoder_func_32.v:711 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_decoder_func_32.v:729 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_decoder_func_32.v:746 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_decoder_func_32.v:767 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_decoder_func_32.v:801 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_decoder_func_32.v:821 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_decoder_func_32.v:839 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_decoder_func_32.v:850 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_decoder_func_32.v:896 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_decoder_func_32.v:913 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_decoder_func_32.v:948 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_decoder_func_32.v:969 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_decoder_func_32.v:978 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_decoder_func_32.v:987 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_decoder_func_32.v:999 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_decoder_func_32.v:1010 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_decoder_func_32.v:1022 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_decoder_func_32.v:1035 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_decoder_func_32.v:1053 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_decoder_func_32.v:1061 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_decoder_func_32.v:1103 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_decoder_func_32.v:1141 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_decoder_func_32.v:1155 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_decoder_func_32.v:1175 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_decoder_func_32.v:1196 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_decoder_func_32.v:1210 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+137. Executing Verilog-2005 frontend: ./verilog/module_fn_alu.v
+Parsing Verilog input from `./verilog/module_fn_alu.v' to AST representation.
+Generating RTLIL representation for module `\module_fn_alu'.
+Note: Assuming pure combinatorial block at ./verilog/module_fn_alu.v:232 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_fn_alu.v:303 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_fn_alu.v:317 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at ./verilog/module_fn_alu.v:341 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+138. Executing Verilog-2005 frontend: ./verilog/module_fn_csr_op.v
+Parsing Verilog input from `./verilog/module_fn_csr_op.v' to AST representation.
+Generating RTLIL representation for module `\module_fn_csr_op'.
+Note: Assuming pure combinatorial block at ./verilog/module_fn_csr_op.v:49 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+139. Executing Verilog-2005 frontend: ./verilog/module_fn_decompress.v
+Parsing Verilog input from `./verilog/module_fn_decompress.v' to AST representation.
+Generating RTLIL representation for module `\module_fn_decompress'.
+Successfully finished Verilog frontend.
+
+140. Executing Verilog-2005 frontend: ./verilog/module_fn_pmp_lookup.v
+Parsing Verilog input from `./verilog/module_fn_pmp_lookup.v' to AST representation.
+Generating RTLIL representation for module `\module_fn_pmp_lookup'.
+Note: Assuming pure combinatorial block at ./verilog/module_fn_pmp_lookup.v:218 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+141. Executing Verilog-2005 frontend: ./verilog/module_fn_single_div.v
+Parsing Verilog input from `./verilog/module_fn_single_div.v' to AST representation.
+Generating RTLIL representation for module `\module_fn_single_div'.
+Successfully finished Verilog frontend.
+
+142. Executing Verilog-2005 frontend: ./verilog/module_hasCSRPermission.v
+Parsing Verilog input from `./verilog/module_hasCSRPermission.v' to AST representation.
+Generating RTLIL representation for module `\module_hasCSRPermission'.
+Successfully finished Verilog frontend.
+
+143. Executing Verilog-2005 frontend: ./verilog/module_valid_csr_access.v
+Parsing Verilog input from `./verilog/module_valid_csr_access.v' to AST representation.
+Generating RTLIL representation for module `\module_valid_csr_access'.
+Successfully finished Verilog frontend.
+
+144. Executing Verilog-2005 frontend: ./verilog/signedmul.v
+Parsing Verilog input from `./verilog/signedmul.v' to AST representation.
+Generating RTLIL representation for module `\signedmul'.
+Successfully finished Verilog frontend.
+
+145. Executing HIERARCHY pass (managing design hierarchy).
+
+145.1. Analyzing design hierarchy..
+Top module:  \mkrestoring_div
+Used module:     \module_fn_single_div
+
+145.2. Analyzing design hierarchy..
+Top module:  \mkrestoring_div
+Used module:     \module_fn_single_div
+Removing unused module `\signedmul'.
+Removing unused module `\module_valid_csr_access'.
+Removing unused module `\module_hasCSRPermission'.
+Removing unused module `\module_fn_pmp_lookup'.
+Removing unused module `\module_fn_decompress'.
+Removing unused module `\module_fn_csr_op'.
+Removing unused module `\module_fn_alu'.
+Removing unused module `\module_decoder_func_32'.
+Removing unused module `\module_decode_word32'.
+Removing unused module `\module_chk_interrupt'.
+Removing unused module `\module_address_valid'.
+Removing unused module `\mkstorebuffer'.
+Removing unused module `\mkstage5'.
+Removing unused module `\mkstage4'.
+Removing unused module `\mkstage3'.
+Removing unused module `\mkstage2'.
+Removing unused module `\mkstage1'.
+Removing unused module `\mkstage0'.
+Removing unused module `\mksign_dump'.
+Removing unused module `\mkriscv'.
+Removing unused module `\mkregisterfile'.
+Removing unused module `\mkmulticycle_alu'.
+Removing unused module `\mkmbox'.
+Removing unused module `\mkinstance'.
+Removing unused module `\mkimem'.
+Removing unused module `\mkicache_tag'.
+Removing unused module `\mkicache_fb_v2'.
+Removing unused module `\mkicache_data'.
+Removing unused module `\mkicache'.
+Removing unused module `\mkfwding'.
+Removing unused module `\mkfpu'.
+Removing unused module `\mkfa_itlb'.
+Removing unused module `\mkfa_dtlb'.
+Removing unused module `\mkdmem'.
+Removing unused module `\mkdcache_tag'.
+Removing unused module `\mkdcache_fb_v2'.
+Removing unused module `\mkdcache_data'.
+Removing unused module `\mkdcache'.
+Removing unused module `\mkcsr'.
+Removing unused module `\mkcombo_mul'.
+Removing unused module `\mkccore_axi4'.
+Removing unused module `\mkbpu'.
+Removing unused module `\mk_csr_grp7'.
+Removing unused module `\mk_csr_grp6'.
+Removing unused module `\mk_csr_grp5'.
+Removing unused module `\mk_csr_grp4'.
+Removing unused module `\mk_csr_grp3'.
+Removing unused module `\mk_csr_grp2'.
+Removing unused module `\mk_csr_grp1'.
+Removing unused module `\mk_csr_daisy'.
+Removing unused module `\bram_2rw'.
+Removing unused module `\bram_1rw'.
+Removing unused module `\bram_1r1w'.
+Removing unused module `\UngatedClockSelect'.
+Removing unused module `\UngatedClockMux'.
+Removing unused module `\TriState'.
+Removing unused module `\SyncWire'.
+Removing unused module `\SyncResetA'.
+Removing unused module `\SyncReset0'.
+Removing unused module `\SyncReset'.
+Removing unused module `\SyncRegister'.
+Removing unused module `\SyncPulse'.
+Removing unused module `\SyncHandshake'.
+Removing unused module `\SyncFIFOLevel0'.
+Removing unused module `\SyncFIFOLevel'.
+Removing unused module `\SyncFIFO10'.
+Removing unused module `\SyncFIFO1'.
+Removing unused module `\SyncFIFO0'.
+Removing unused module `\SyncFIFO'.
+Removing unused module `\SyncBit15'.
+Removing unused module `\SyncBit1'.
+Removing unused module `\SyncBit05'.
+Removing unused module `\SyncBit'.
+Removing unused module `\SizedFIFOL0'.
+Removing unused module `\SizedFIFOL'.
+Removing unused module `\SizedFIFO0'.
+Removing unused module `\SizedFIFO'.
+Removing unused module `\ScanIn'.
+Removing unused module `\SampleReg'.
+Removing unused module `\RevertReg'.
+Removing unused module `\ResetToBool'.
+Removing unused module `\ResetMux'.
+Removing unused module `\ResetInverter'.
+Removing unused module `\ResetEither'.
+Removing unused module `\RegUN'.
+Removing unused module `\RegTwoUN'.
+Removing unused module `\RegTwoN'.
+Removing unused module `\RegTwoA'.
+Removing unused module `\RegN'.
+Removing unused module `\RegFile'.
+Removing unused module `\RegAligned'.
+Removing unused module `\RegA'.
+Removing unused module `\RWire0'.
+Removing unused module `\RWire'.
+Removing unused module `\ProbeWire'.
+Removing unused module `\ProbeValue'.
+Removing unused module `\ProbeTrigger'.
+Removing unused module `\ProbeMux'.
+Removing unused module `\ProbeCapture'.
+Removing unused module `\MakeResetA'.
+Removing unused module `\MakeReset0'.
+Removing unused module `\MakeReset'.
+Removing unused module `\MakeClock'.
+Removing unused module `\LatchCrossingReg'.
+Removing unused module `\GatedClockInverter'.
+Removing unused module `\GatedClockDiv'.
+Removing unused module `\GatedClock'.
+Removing unused module `\Fork'.
+Removing unused module `\FIFOL20'.
+Removing unused module `\FIFOL2'.
+Removing unused module `\FIFOL10'.
+Removing unused module `\FIFOL1'.
+Removing unused module `\FIFO20'.
+Removing unused module `\FIFO2'.
+Removing unused module `\FIFO10'.
+Removing unused module `\FIFO1'.
+Removing unused module `\DualPortRam'.
+Removing unused module `\CrossingRegUN'.
+Removing unused module `\CrossingRegN'.
+Removing unused module `\CrossingRegA'.
+Removing unused module `\CrossingBypassWire'.
+Removing unused module `\Counter'.
+Removing unused module `\ConstrainedRandom'.
+Removing unused module `\ConfigRegUN'.
+Removing unused module `\ConfigRegN'.
+Removing unused module `\ConfigRegA'.
+Removing unused module `\ClockSelect'.
+Removing unused module `\ClockMux'.
+Removing unused module `\ClockInverter'.
+Removing unused module `\ClockGen'.
+Removing unused module `\ClockDiv'.
+Removing unused module `\CRegUN5'.
+Removing unused module `\CRegN5'.
+Removing unused module `\CRegA5'.
+Removing unused module `\BypassWire'.
+Removing unused module `\BypassCrossingWire'.
+Removing unused module `\BRAM2'.
+Removing unused module `\BRAM1BE'.
+Removing unused module `\BRAM1'.
+Removed 139 unused modules.
+
+146. Executing PROC pass (convert processes to netlists).
+
+146.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+146.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$./verilog/mkrestoring_div.v:322$29054 in module mkrestoring_div.
+Removed a total of 0 dead cases.
+
+146.3. Executing PROC_INIT pass (extract init attributes).
+
+146.4. Executing PROC_ARST pass (detect async resets in processes).
+
+146.5. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\mkrestoring_div.$proc$./verilog/mkrestoring_div.v:322$29054'.
+     1/11: $0\rg_valid[0:0]
+     2/11: $0\rg_upperbits[0:0]
+     3/11: $0\rg_sign_op1[0:0]
+     4/11: $0\rg_op2[63:0]
+     5/11: $0\rg_in1[63:0]
+     6/11: $0\rg_count[5:0]
+     7/11: $0\rg_complement[0:0]
+     8/11: $0\quotient_remainder[0:0]
+     9/11: $0\partial[128:0]
+    10/11: $0\rg_result[63:0]
+    11/11: $0\rg_word[0:0]
+
+146.6. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+146.7. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\mkrestoring_div.\rg_word' using process `\mkrestoring_div.$proc$./verilog/mkrestoring_div.v:322$29054'.
+  created $dff cell `$procdff$32411' with positive edge clock.
+Creating register for signal `\mkrestoring_div.\rg_result' using process `\mkrestoring_div.$proc$./verilog/mkrestoring_div.v:322$29054'.
+  created $dff cell `$procdff$32412' with positive edge clock.
+Creating register for signal `\mkrestoring_div.\partial' using process `\mkrestoring_div.$proc$./verilog/mkrestoring_div.v:322$29054'.
+  created $dff cell `$procdff$32413' with positive edge clock.
+Creating register for signal `\mkrestoring_div.\quotient_remainder' using process `\mkrestoring_div.$proc$./verilog/mkrestoring_div.v:322$29054'.
+  created $dff cell `$procdff$32414' with positive edge clock.
+Creating register for signal `\mkrestoring_div.\rg_complement' using process `\mkrestoring_div.$proc$./verilog/mkrestoring_div.v:322$29054'.
+  created $dff cell `$procdff$32415' with positive edge clock.
+Creating register for signal `\mkrestoring_div.\rg_count' using process `\mkrestoring_div.$proc$./verilog/mkrestoring_div.v:322$29054'.
+  created $dff cell `$procdff$32416' with positive edge clock.
+Creating register for signal `\mkrestoring_div.\rg_in1' using process `\mkrestoring_div.$proc$./verilog/mkrestoring_div.v:322$29054'.
+  created $dff cell `$procdff$32417' with positive edge clock.
+Creating register for signal `\mkrestoring_div.\rg_op2' using process `\mkrestoring_div.$proc$./verilog/mkrestoring_div.v:322$29054'.
+  created $dff cell `$procdff$32418' with positive edge clock.
+Creating register for signal `\mkrestoring_div.\rg_sign_op1' using process `\mkrestoring_div.$proc$./verilog/mkrestoring_div.v:322$29054'.
+  created $dff cell `$procdff$32419' with positive edge clock.
+Creating register for signal `\mkrestoring_div.\rg_upperbits' using process `\mkrestoring_div.$proc$./verilog/mkrestoring_div.v:322$29054'.
+  created $dff cell `$procdff$32420' with positive edge clock.
+Creating register for signal `\mkrestoring_div.\rg_valid' using process `\mkrestoring_div.$proc$./verilog/mkrestoring_div.v:322$29054'.
+  created $dff cell `$procdff$32421' with positive edge clock.
+
+146.8. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 12 empty switches in `\mkrestoring_div.$proc$./verilog/mkrestoring_div.v:322$29054'.
+Removing empty process `mkrestoring_div.$proc$./verilog/mkrestoring_div.v:322$29054'.
+Cleaned up 12 empty switches.
+
+147. Executing OPT pass (performing simple optimizations).
+
+147.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module module_fn_single_div.
+Optimizing module mkrestoring_div.
+<suppressed ~17 debug messages>
+
+147.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\module_fn_single_div'.
+Finding identical cells in module `\mkrestoring_div'.
+<suppressed ~21 debug messages>
+Removed a total of 7 cells.
+
+147.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \module_fn_single_div..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \mkrestoring_div..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~16 debug messages>
+
+147.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \module_fn_single_div.
+  Optimizing cells in module \mkrestoring_div.
+Performed a total of 0 changes.
+
+147.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\module_fn_single_div'.
+Finding identical cells in module `\mkrestoring_div'.
+Removed a total of 0 cells.
+
+147.6. Executing OPT_RMDFF pass (remove dff with constant values).
+
+147.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \module_fn_single_div..
+Finding unused cells or wires in module \mkrestoring_div..
+Removed 1 unused cells and 75 unused wires.
+<suppressed ~3 debug messages>
+
+147.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mkrestoring_div.
+Optimizing module module_fn_single_div.
+
+147.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+147.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \mkrestoring_div..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \module_fn_single_div..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~16 debug messages>
+
+147.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \mkrestoring_div.
+  Optimizing cells in module \module_fn_single_div.
+Performed a total of 0 changes.
+
+147.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mkrestoring_div'.
+Finding identical cells in module `\module_fn_single_div'.
+Removed a total of 0 cells.
+
+147.13. Executing OPT_RMDFF pass (remove dff with constant values).
+
+147.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mkrestoring_div..
+Finding unused cells or wires in module \module_fn_single_div..
+
+147.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mkrestoring_div.
+Optimizing module module_fn_single_div.
+
+147.16. Finished OPT passes. (There is nothing left to do.)
+
+148. Executing FSM pass (extract and optimize FSM).
+
+148.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+148.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+148.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+148.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mkrestoring_div..
+Finding unused cells or wires in module \module_fn_single_div..
+
+148.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+148.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+148.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+148.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+149. Executing OPT pass (performing simple optimizations).
+
+149.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mkrestoring_div.
+Optimizing module module_fn_single_div.
+
+149.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mkrestoring_div'.
+Finding identical cells in module `\module_fn_single_div'.
+Removed a total of 0 cells.
+
+149.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \mkrestoring_div..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \module_fn_single_div..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~16 debug messages>
+
+149.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \mkrestoring_div.
+  Optimizing cells in module \module_fn_single_div.
+Performed a total of 0 changes.
+
+149.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mkrestoring_div'.
+Finding identical cells in module `\module_fn_single_div'.
+Removed a total of 0 cells.
+
+149.6. Executing OPT_RMDFF pass (remove dff with constant values).
+
+149.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mkrestoring_div..
+Finding unused cells or wires in module \module_fn_single_div..
+
+149.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mkrestoring_div.
+Optimizing module module_fn_single_div.
+
+149.9. Finished OPT passes. (There is nothing left to do.)
+
+150. Executing MEMORY pass.
+
+150.1. Executing MEMORY_DFF pass (merging $dff cells to $memrd and $memwr).
+
+150.2. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mkrestoring_div..
+Finding unused cells or wires in module \module_fn_single_div..
+
+150.3. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+150.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mkrestoring_div..
+Finding unused cells or wires in module \module_fn_single_div..
+
+150.5. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+150.6. Executing MEMORY_MAP pass (converting $mem cells to logic and flip-flops).
+
+151. Executing OPT pass (performing simple optimizations).
+
+151.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mkrestoring_div.
+Optimizing module module_fn_single_div.
+
+151.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mkrestoring_div'.
+Finding identical cells in module `\module_fn_single_div'.
+Removed a total of 0 cells.
+
+151.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \mkrestoring_div..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \module_fn_single_div..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~16 debug messages>
+
+151.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \mkrestoring_div.
+  Optimizing cells in module \module_fn_single_div.
+Performed a total of 0 changes.
+
+151.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mkrestoring_div'.
+Finding identical cells in module `\module_fn_single_div'.
+Removed a total of 0 cells.
+
+151.6. Executing OPT_RMDFF pass (remove dff with constant values).
+
+151.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mkrestoring_div..
+Finding unused cells or wires in module \module_fn_single_div..
+
+151.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mkrestoring_div.
+Optimizing module module_fn_single_div.
+
+151.9. Finished OPT passes. (There is nothing left to do.)
+
+152. Executing TECHMAP pass (map to technology primitives).
+
+152.1. Executing Verilog-2005 frontend: <techmap.v>
+Parsing Verilog input from `<techmap.v>' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+152.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $dff.
+Using extmapper simplemap for cells of type $logic_and.
+Using extmapper simplemap for cells of type $reduce_bool.
+Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $logic_or.
+Using extmapper simplemap for cells of type $xor.
+Running "alumacc" on wrapper $extern:wrap:$add:A_SIGNED=0:A_WIDTH=64:B_SIGNED=0:B_WIDTH=64:Y_WIDTH=64:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$add:A_SIGNED=0:A_WIDTH=64:B_SIGNED=0:B_WIDTH=64:Y_WIDTH=64:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$add:A_SIGNED=0:A_WIDTH=64:B_SIGNED=0:B_WIDTH=64:Y_WIDTH=64:394426c56d1a028ba8fdd5469b163e04011def47.
+Using extmapper simplemap for cells of type $logic_not.
+Using extmapper simplemap for cells of type $not.
+Running "alumacc" on wrapper $extern:wrap:$add:A_SIGNED=0:A_WIDTH=6:B_SIGNED=0:B_WIDTH=6:Y_WIDTH=6:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$add:A_SIGNED=0:A_WIDTH=6:B_SIGNED=0:B_WIDTH=6:Y_WIDTH=6:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$add:A_SIGNED=0:A_WIDTH=6:B_SIGNED=0:B_WIDTH=6:Y_WIDTH=6:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $paramod\_90_alu\A_SIGNED=0\B_SIGNED=0\A_WIDTH=64\B_WIDTH=64\Y_WIDTH=64 for cells of type $alu.
+Using template $paramod\_90_alu\A_SIGNED=0\B_SIGNED=0\A_WIDTH=6\B_WIDTH=6\Y_WIDTH=6 for cells of type $alu.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $pos.
+Using template $paramod\_90_lcu\WIDTH=64 for cells of type $lcu.
+Using template $paramod\_90_lcu\WIDTH=6 for cells of type $lcu.
+Using extmapper simplemap for cells of type $or.
+Running "alumacc" on wrapper $extern:wrap:$lt:A_SIGNED=0:A_WIDTH=64:B_SIGNED=0:B_WIDTH=64:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$lt:A_SIGNED=0:A_WIDTH=64:B_SIGNED=0:B_WIDTH=64:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$lt:A_SIGNED=0:A_WIDTH=64:B_SIGNED=0:B_WIDTH=64:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$add:A_SIGNED=0:A_WIDTH=65:B_SIGNED=0:B_WIDTH=65:Y_WIDTH=65:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$add:A_SIGNED=0:A_WIDTH=65:B_SIGNED=0:B_WIDTH=65:Y_WIDTH=65:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$add:A_SIGNED=0:A_WIDTH=65:B_SIGNED=0:B_WIDTH=65:Y_WIDTH=65:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $paramod\_90_alu\A_SIGNED=0\B_SIGNED=0\A_WIDTH=65\B_WIDTH=65\Y_WIDTH=65 for cells of type $alu.
+Using template $paramod\_90_lcu\WIDTH=65 for cells of type $lcu.
+No more expansions possible.
+<suppressed ~3345 debug messages>
+
+153. Executing OPT pass (performing simple optimizations).
+
+153.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mkrestoring_div.
+<suppressed ~1605 debug messages>
+Optimizing module module_fn_single_div.
+<suppressed ~838 debug messages>
+
+153.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mkrestoring_div'.
+<suppressed ~195 debug messages>
+Finding identical cells in module `\module_fn_single_div'.
+<suppressed ~582 debug messages>
+Removed a total of 259 cells.
+
+153.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \mkrestoring_div..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \module_fn_single_div..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+153.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \mkrestoring_div.
+  Optimizing cells in module \module_fn_single_div.
+Performed a total of 0 changes.
+
+153.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mkrestoring_div'.
+Finding identical cells in module `\module_fn_single_div'.
+Removed a total of 0 cells.
+
+153.6. Executing OPT_RMDFF pass (remove dff with constant values).
+
+153.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mkrestoring_div..
+Finding unused cells or wires in module \module_fn_single_div..
+Removed 479 unused cells and 1144 unused wires.
+<suppressed ~484 debug messages>
+
+153.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mkrestoring_div.
+Optimizing module module_fn_single_div.
+
+153.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+153.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \mkrestoring_div..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \module_fn_single_div..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+153.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \mkrestoring_div.
+  Optimizing cells in module \module_fn_single_div.
+Performed a total of 0 changes.
+
+153.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mkrestoring_div'.
+Finding identical cells in module `\module_fn_single_div'.
+Removed a total of 0 cells.
+
+153.13. Executing OPT_RMDFF pass (remove dff with constant values).
+
+153.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mkrestoring_div..
+Finding unused cells or wires in module \module_fn_single_div..
+
+153.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mkrestoring_div.
+Optimizing module module_fn_single_div.
+
+153.16. Finished OPT passes. (There is nothing left to do.)
+
+154. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfrbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfrtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfsbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfstp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfxtp_1' - skipping.
+  cell sky130_fd_sc_hvl__dfxtp_1 (noninv, pins=3, area=48.84) is a direct match for cell type $_DFF_P_.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfrbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfrtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfsbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfstp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfxtp_1' - skipping.
+  cell sky130_fd_sc_hvl__dfrtp_1 (noninv, pins=4, area=62.52) is a direct match for cell type $_DFF_PN0_.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfrbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfrtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfsbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfstp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfxtp_1' - skipping.
+  cell sky130_fd_sc_hvl__dfstp_1 (noninv, pins=4, area=60.56) is a direct match for cell type $_DFF_PN1_.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfrbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfrtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfsbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfstp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfrbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfrtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfsbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfstp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfrbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfrtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfsbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfstp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfrbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfrtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfsbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfstp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfrbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfrtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfsbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfstp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfrbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfrtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfsbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfstp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hvl__sdfxtp_1' - skipping.
+  create mapping for $_DFF_PP0_ from mapping for $_DFF_PN0_.
+  create mapping for $_DFF_PP1_ from mapping for $_DFF_PN1_.
+  create mapping for $_DFF_N_ from mapping for $_DFF_P_.
+  create mapping for $_DFF_NN0_ from mapping for $_DFF_PN0_.
+  create mapping for $_DFF_NP0_ from mapping for $_DFF_NN0_.
+  create mapping for $_DFF_NN1_ from mapping for $_DFF_NN0_.
+  create mapping for $_DFF_NP1_ from mapping for $_DFF_NN1_.
+  final dff cell mappings:
+    sky130_fd_sc_hvl__dfxtp_1 _DFF_N_ (.CLK(~C), .D( D), .Q( Q));
+    sky130_fd_sc_hvl__dfxtp_1 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    sky130_fd_sc_hvl__dfrtp_1 _DFF_NN0_ (.CLK(~C), .D( D), .Q( Q), .RESET_B( R));
+    sky130_fd_sc_hvl__dfrtp_1 _DFF_NN1_ (.CLK(~C), .D(~D), .Q(~Q), .RESET_B( R));
+    sky130_fd_sc_hvl__dfrtp_1 _DFF_NP0_ (.CLK(~C), .D( D), .Q( Q), .RESET_B(~R));
+    sky130_fd_sc_hvl__dfrtp_1 _DFF_NP1_ (.CLK(~C), .D(~D), .Q(~Q), .RESET_B(~R));
+    sky130_fd_sc_hvl__dfrtp_1 _DFF_PN0_ (.CLK( C), .D( D), .Q( Q), .RESET_B( R));
+    sky130_fd_sc_hvl__dfstp_1 _DFF_PN1_ (.CLK( C), .D( D), .Q( Q), .SET_B( R));
+    sky130_fd_sc_hvl__dfrtp_1 _DFF_PP0_ (.CLK( C), .D( D), .Q( Q), .RESET_B(~R));
+    sky130_fd_sc_hvl__dfstp_1 _DFF_PP1_ (.CLK( C), .D( D), .Q( Q), .SET_B(~R));
+    unmapped dff cell: $_DFFSR_NNN_
+    unmapped dff cell: $_DFFSR_NNP_
+    unmapped dff cell: $_DFFSR_NPN_
+    unmapped dff cell: $_DFFSR_NPP_
+    unmapped dff cell: $_DFFSR_PNN_
+    unmapped dff cell: $_DFFSR_PNP_
+    unmapped dff cell: $_DFFSR_PPN_
+    unmapped dff cell: $_DFFSR_PPP_
+Mapping DFF cells in module `\mkrestoring_div':
+  mapped 333 $_DFF_P_ cells to \sky130_fd_sc_hvl__dfxtp_1 cells.
+Mapping DFF cells in module `\module_fn_single_div':
+
+155. Executing ABC pass (technology mapping using ABC).
+
+155.1. Extracting gate netlist of module `\mkrestoring_div' to `<abc-temp-dir>/input.blif'..
+Extracted 2028 gates and 2625 wires to a netlist network with 595 inputs and 333 outputs.
+
+155.1.1. Executing ABC.
+Running ABC command: berkeley-abc -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -w /home/min/a/hoque2/ece-51216-tutorial/./lib/sky130_fd_sc_hvl__tt_100C_3v30.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.02 sec
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hvl__decap_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hvl__decap_8" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hvl__dfrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hvl__dfrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hvl__dfsbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hvl__dfstp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hvl__dfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hvl__dfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hvl__diode_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hvl__dlclkp_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hvl__dlrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hvl__dlxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hvl__einvn_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hvl__einvp_1".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hvl__probe_p_8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hvl__probec_p_8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hvl__sdfrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hvl__sdfrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hvl__sdfsbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hvl__sdfstp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hvl__sdfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hvl__sdfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hvl__sdlclkp_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hvl__sdlxtp_1".
+ABC: Library "sky130_fd_sc_hvl__tt_100C_3v30" from "/home/min/a/hoque2/ece-51216-tutorial/./lib/sky130_fd_sc_hvl__tt_100C_3v30.lib" has 33 cells (22 skipped: 15 seq; 2 tri-state; 5 no func; 2 dont_use).  Time =     0.03 sec
+ABC: Memory =    3.38 MB. Time =     0.03 sec
+ABC: + strash 
+ABC: + ifraig 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + retime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+155.1.2. Re-integrating ABC results.
+ABC RESULTS:   sky130_fd_sc_hvl__a21o_1 cells:       18
+ABC RESULTS:   sky130_fd_sc_hvl__a21oi_1 cells:      205
+ABC RESULTS:   sky130_fd_sc_hvl__a22o_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hvl__a22oi_1 cells:      155
+ABC RESULTS:   sky130_fd_sc_hvl__and2_1 cells:       27
+ABC RESULTS:   sky130_fd_sc_hvl__and3_1 cells:        6
+ABC RESULTS:   sky130_fd_sc_hvl__inv_1 cells:       53
+ABC RESULTS:   sky130_fd_sc_hvl__mux2_1 cells:       48
+ABC RESULTS:   sky130_fd_sc_hvl__nand2_1 cells:      212
+ABC RESULTS:   sky130_fd_sc_hvl__nand3_1 cells:       61
+ABC RESULTS:   sky130_fd_sc_hvl__nor2_1 cells:      368
+ABC RESULTS:   sky130_fd_sc_hvl__nor3_1 cells:       55
+ABC RESULTS:   sky130_fd_sc_hvl__o21a_1 cells:       88
+ABC RESULTS:   sky130_fd_sc_hvl__o21ai_1 cells:      267
+ABC RESULTS:   sky130_fd_sc_hvl__o22ai_1 cells:        4
+ABC RESULTS:   sky130_fd_sc_hvl__or2_1 cells:       15
+ABC RESULTS:   sky130_fd_sc_hvl__or3_1 cells:       32
+ABC RESULTS:   sky130_fd_sc_hvl__xnor2_1 cells:      164
+ABC RESULTS:   sky130_fd_sc_hvl__xor2_1 cells:       80
+ABC RESULTS:        internal signals:     1697
+ABC RESULTS:           input signals:      595
+ABC RESULTS:          output signals:      333
+Removing temp directory.
+
+155.2. Extracting gate netlist of module `\module_fn_single_div' to `<abc-temp-dir>/input.blif'..
+Extracted 1955 gates and 2085 wires to a netlist network with 129 inputs and 67 outputs.
+
+155.2.1. Executing ABC.
+Running ABC command: berkeley-abc -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -w /home/min/a/hoque2/ece-51216-tutorial/./lib/sky130_fd_sc_hvl__tt_100C_3v30.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.02 sec
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hvl__decap_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hvl__decap_8" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hvl__dfrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hvl__dfrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hvl__dfsbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hvl__dfstp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hvl__dfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hvl__dfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hvl__diode_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hvl__dlclkp_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hvl__dlrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hvl__dlxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hvl__einvn_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hvl__einvp_1".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hvl__probe_p_8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hvl__probec_p_8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hvl__sdfrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hvl__sdfrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hvl__sdfsbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hvl__sdfstp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hvl__sdfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hvl__sdfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hvl__sdlclkp_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hvl__sdlxtp_1".
+ABC: Library "sky130_fd_sc_hvl__tt_100C_3v30" from "/home/min/a/hoque2/ece-51216-tutorial/./lib/sky130_fd_sc_hvl__tt_100C_3v30.lib" has 33 cells (22 skipped: 15 seq; 2 tri-state; 5 no func; 2 dont_use).  Time =     0.03 sec
+ABC: Memory =    3.38 MB. Time =     0.03 sec
+ABC: + strash 
+ABC: + ifraig 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + retime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+155.2.2. Re-integrating ABC results.
+ABC RESULTS:   sky130_fd_sc_hvl__a21o_1 cells:       18
+ABC RESULTS:   sky130_fd_sc_hvl__a21oi_1 cells:       85
+ABC RESULTS:   sky130_fd_sc_hvl__a22o_1 cells:        6
+ABC RESULTS:   sky130_fd_sc_hvl__a22oi_1 cells:       43
+ABC RESULTS:   sky130_fd_sc_hvl__and2_1 cells:       82
+ABC RESULTS:   sky130_fd_sc_hvl__and3_1 cells:       29
+ABC RESULTS:   sky130_fd_sc_hvl__inv_1 cells:      111
+ABC RESULTS:   sky130_fd_sc_hvl__mux2_1 cells:       98
+ABC RESULTS:   sky130_fd_sc_hvl__nand2_1 cells:      192
+ABC RESULTS:   sky130_fd_sc_hvl__nand3_1 cells:       22
+ABC RESULTS:   sky130_fd_sc_hvl__nor2_1 cells:      142
+ABC RESULTS:   sky130_fd_sc_hvl__nor3_1 cells:       27
+ABC RESULTS:   sky130_fd_sc_hvl__o21a_1 cells:       36
+ABC RESULTS:   sky130_fd_sc_hvl__o21ai_1 cells:      104
+ABC RESULTS:   sky130_fd_sc_hvl__o22a_1 cells:        5
+ABC RESULTS:   sky130_fd_sc_hvl__o22ai_1 cells:       56
+ABC RESULTS:   sky130_fd_sc_hvl__or2_1 cells:       35
+ABC RESULTS:   sky130_fd_sc_hvl__or3_1 cells:       31
+ABC RESULTS:   sky130_fd_sc_hvl__xnor2_1 cells:      176
+ABC RESULTS:   sky130_fd_sc_hvl__xor2_1 cells:       42
+ABC RESULTS:        internal signals:     1889
+ABC RESULTS:           input signals:      129
+ABC RESULTS:          output signals:       67
+Removing temp directory.
+Removed 0 unused cells and 2228 unused wires.
+
+156. Executing Verilog backend.
+Dumping module `\mkrestoring_div'.
+Dumping module `\module_fn_single_div'.
+
+Warnings: 11 unique messages, 59 total
+End of script. Logfile hash: 3873abd5bf
+CPU: user 3.56s system 0.25s, MEM: 207.93 MB total, 199.93 MB resident
+Yosys 0.9 (git sha1 1979e0b)
+Time spent: 54% 146x read_verilog (1 sec), 9% 2x write_verilog (0 sec), ...
